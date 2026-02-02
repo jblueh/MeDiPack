@@ -1,6 +1,9 @@
 Changelog      {#Changelog}
 ============
 
+### v 1.4.0 - 2026-02-02
+ - Added input and output iterators
+
 ### v 1.3.3 - 2025-07-31
  - Update for CoDiPack C++ change.
  - Missing version increase in file.
