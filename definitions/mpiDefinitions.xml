@@ -437,9 +437,9 @@
         <typedef name="MPI_Comm_errhandler_function" version="2.2" />
         <typedef name="MPI_Win_errhandler_function" version="2.2" />
         <typedef name="MPI_File_errhandler_function" version="2.2" />
-        <typedef name="MPI_Comm_errhandler_fn" version="2.0" deprecated="2.2" />
-        <typedef name="MPI_Win_errhandler_fn" version="2.0" deprecated="2.2" />
-        <typedef name="MPI_File_errhandler_fn" version="2.0" deprecated="2.2" />
+        <typedef name="MPI_Comm_errhandler_fn" version="2.0" removed="2.2" />
+        <typedef name="MPI_Win_errhandler_fn" version="2.0" removed="2.2" />
+        <typedef name="MPI_File_errhandler_fn" version="2.0" removed="2.2" />
         <typedef name="MPI_Grequest_query_function" version="2.0" />
         <typedef name="MPI_Grequest_free_function" version="2.0" />
         <typedef name="MPI_Grequest_cancel_function" version="2.0" />
@@ -447,13 +447,13 @@
         <typedef name="MPI_Datarep_conversion_function" version="2.0" />
 
   <!-- deprecated or errors -->
-    <define name="MPI_UB" version="1.0" deprecated="3.0" />
-    <define name="MPI_LB" version="1.0" deprecated="3.0" />
-    <define name="MPI_PENDING" version="1.1" deprecated="1.2" />
-    <define name="MPI_COMBINER_HINDEXED_INTEGER" version="2.0" deprecated="3.0" />
-    <define name="MPI_COMBINER_HVECTOR_INTEGER" version="2.0" deprecated="3.0" />
-    <define name="MPI_COMBINER_STRUCT_INTEGER" version="2.0" deprecated="3.0" />
+    <define name="MPI_UB" version="1.0" removed="3.0" />
+    <define name="MPI_LB" version="1.0" removed="3.0" />
+    <define name="MPI_PENDING" version="1.1" removed="1.2" />
+    <define name="MPI_COMBINER_HINDEXED_INTEGER" version="2.0" removed="3.0" />
+    <define name="MPI_COMBINER_HVECTOR_INTEGER" version="2.0" removed="3.0" />
+    <define name="MPI_COMBINER_STRUCT_INTEGER" version="2.0" removed="3.0" />
     <typedef name="MPI_Copy_function" version="1.0"/>
     <typedef name="MPI_Delete_function" version="1.0"/>
-    <typedef name="MPI_Handler_function" version="1.0" deprecated="3.0"/>
+    <typedef name="MPI_Handler_function" version="1.0" removed="3.0"/>
 </definitions>

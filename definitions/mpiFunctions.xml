@@ -1644,7 +1644,7 @@
         <arg name="errhandler" type="MPI_Errhandler*" />
       </function>
 
-      <function name="Comm_create_errhandler" version="2.0" deprecated="2.2">
+      <function name="Comm_create_errhandler" version="2.0" removed="2.2">
         <arg name="comm_errhandler_fn" type="MPI_Comm_errhandler_fn*" />
         <arg name="errhandler" type="MPI_Errhandler*" />
       </function>
@@ -1684,7 +1684,7 @@
         <arg name="errhandler" type="MPI_Errhandler*" />
       </function>
 
-      <function name="File_create_errhandler" version="2.0" deprecated="2.2">
+      <function name="File_create_errhandler" version="2.0" removed="2.2">
         <arg name="file_errhandler_fn" type="MPI_File_errhandler_fn*" />
         <arg name="errhandler" type="MPI_Errhandler*" />
       </function>
@@ -1745,7 +1745,7 @@
         <arg name="errhandler" type="MPI_Errhandler*" />
       </function>
 
-      <function name="Win_create_errhandler" version="2.0" deprecated="2.2">
+      <function name="Win_create_errhandler" version="2.0" removed="2.2">
         <arg name="win_errhandler_fn" type="MPI_Win_errhandler_fn*" />
         <arg name="errhandler" type="MPI_Errhandler*" />
       </function>
@@ -2928,66 +2928,66 @@
 
     <!-- deprecated functions -->
 
-      <function name="Address" version="1.0" deprecated="3.0">
+      <function name="Address" version="1.0" deprecated="2.0" removed="3.0">
         <arg name="location" type="void*" />
         <arg name="address" type="MPI_Aint*" />
       </function>
 
-      <function name="Attr_delete" version="1.0">
+      <function name="Attr_delete" version="1.0" deprecated="2.0" removed="3.0">
         <arg name="comm" type="MPI_Comm" />
         <arg name="keyval" type="int" />
       </function>
 
-      <function name="Attr_get" version="1.0">
+      <function name="Attr_get" version="1.0" deprecated="2.0" removed="3.0">
         <arg name="comm" type="MPI_Comm" />
         <arg name="keyval" type="int" />
         <arg name="attribute_val" type="void*" />
         <arg name="flag" type="int*" />
       </function>
 
-      <function name="Attr_put" version="1.0">
+      <function name="Attr_put" version="1.0" deprecated="2.0" removed="3.0">
         <arg name="comm" type="MPI_Comm" />
         <arg name="keyval" type="int" />
         <arg name="attribute_val" type="void*" />
       </function>
 
-      <function name="Keyval_create" version="1.0">
+      <function name="Keyval_create" version="1.0" deprecated="2.0">
         <arg name="copy_fn" type="MPI_Copy_function*" />
         <arg name="delete_fn" type="MPI_Delete_function*" />
         <arg name="keyval" type="int*" />
         <arg name="extra_state" type="void*" />
       </function>
 
-      <function name="Keyval_free" version="1.0">
+      <function name="Keyval_free" version="1.0" deprecated="2.0">
         <arg name="keyval" type="int*" />
       </function>
 
-      <function name="Errhandler_create" version="1.0" deprecated="3.0">
+      <function name="Errhandler_create" version="1.0" removed="3.0">
         <arg name="function" type="MPI_Handler_function*" />
         <arg name="errhandler" type="MPI_Errhandler*" />
       </function>
 
-      <function name="Errhandler_get" version="1.0" deprecated="3.0">
+      <function name="Errhandler_get" version="1.0" removed="3.0">
         <arg name="comm" type="MPI_Comm" />
         <arg name="errhandler" type="MPI_Errhandler*" />
       </function>
 
-      <function name="Errhandler_set" version="1.0" deprecated="3.0">
+      <function name="Errhandler_set" version="1.0" removed="3.0">
         <arg name="comm" type="MPI_Comm" />
         <arg name="errhandler" type="MPI_Errhandler" />
       </function>
 
-      <function name="Type_extent" version="1.0" deprecated="3.0">
+      <function name="Type_extent" version="1.0" removed="3.0">
         <type name="datatype" type="MPI_Datatype" />
         <arg name="extent" type="MPI_Aint*" />
       </function>
 
-      <function name="Type_lb" version="1.0" deprecated="3.0">
+      <function name="Type_lb" version="1.0" removed="3.0">
         <type name="datatype" type="MPI_Datatype" />
         <arg name="displacement" type="MPI_Aint*" />
       </function>
 
-      <function name="Type_ub" version="1.0" deprecated="3.0">
+      <function name="Type_ub" version="1.0" removed="3.0">
         <type name="datatype" type="MPI_Datatype" />
         <arg name="displacement" type="MPI_Aint*" />
       </function>

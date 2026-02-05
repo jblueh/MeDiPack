@@ -42,15 +42,18 @@ namespace medi {
    *
    * All methods in this implementation contain no logic.
    */
-  class ADToolPassive final : public ADToolBase<ADToolPassive, void, void, void> {
+  class ADToolPassive final : public ADToolBase<ADToolPassive, char, char, char> {
     public:
 
-      typedef void PrimalType;
-      typedef void AdjointType;
-      typedef void IndexType;
+      using PrimalType = char;
+      using AdjointType = char;
+      using IndexType = char;
+
+      using CallbackFuncTyped = void (*)(IndexType* id, void* userData);
+      using Base = ADToolBase<ADToolPassive, char, char, char>;
 
       ADToolPassive(MPI_Datatype primalType, MPI_Datatype adjointType) :
-        ADToolBase<ADToolPassive, void, void, void>(primalType, adjointType)
+        Base(primalType, adjointType)
       {}
 
       inline bool isActiveType() const {return false;}
@@ -65,24 +68,36 @@ namespace medi {
         return op;
       }
 
+      using Base::createPrimalTypeBuffer;
       inline void createPrimalTypeBuffer(PrimalType* &buf, size_t size) const {
         MEDI_UNUSED(size);
 
         buf = nullptr;
       }
 
+      using Base::createIndexTypeBuffer;
       inline void createIndexTypeBuffer(IndexType* &buf, size_t size) const {
         MEDI_UNUSED(size);
 
         buf = nullptr;
       }
 
+      using Base::deletePrimalTypeBuffer;
       inline void deletePrimalTypeBuffer(PrimalType* &buf) const {
         buf = nullptr;
       }
 
+      using Base::deleteIndexTypeBuffer;
       inline void deleteIndexTypeBuffer(IndexType* &buf) const {
         buf = nullptr;
+      }
+
+      using Base::iterateIdentifiers;
+      void iterateIdentifiers(void* indices, int elements, CallbackFuncTyped func, void* userData) const {
+        (void)indices;
+        (void)elements;
+        (void)func;
+        (void)userData;
       }
   };
 }

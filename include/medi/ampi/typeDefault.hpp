@@ -107,6 +107,7 @@ namespace medi {
         return adTool->isModifiedBufferRequired();
       }
 
+      using Base::copyIntoModifiedBuffer;
       inline void copyIntoModifiedBuffer(const Type* buf, size_t bufOffset, ModifiedType* bufMod, size_t bufModOffset, int elements) const {
         if(adTool->isModifiedBufferRequired()) {
           for(int i = 0; i < elements; ++i) {
@@ -115,6 +116,7 @@ namespace medi {
         }
       }
 
+      using Base::copyFromModifiedBuffer;
       inline void copyFromModifiedBuffer(Type* buf, size_t bufOffset, const ModifiedType* bufMod, size_t bufModOffset, int elements) const {
         if(adTool->isModifiedBufferRequired()) {
           for(int i = 0; i < elements; ++i) {
@@ -123,6 +125,7 @@ namespace medi {
         }
       }
 
+      using Base::getIndices;
       inline void getIndices(const Type* buf, size_t bufOffset, IndexType* indices, size_t bufModOffset, int elements) const {
         int indexOffset = computeActiveElements((int)bufModOffset);
 
@@ -131,6 +134,7 @@ namespace medi {
         }
       }
 
+      using Base::registerValue;
       inline void registerValue(Type* buf, size_t bufOffset, IndexType* indices, PrimalType* oldPrimals, size_t bufModOffset, int elements) const {
         int indexOffset = computeActiveElements((int)bufModOffset);
 
@@ -139,12 +143,14 @@ namespace medi {
         }
       }
 
+      using Base::clearIndices;
       inline void clearIndices(Type* buf, size_t bufOffset, int elements) const {
         for(int i = 0; i < elements; ++i) {
           ADTool::clearIndex(buf[bufOffset + i]);
         }
       }
 
+      using Base::createIndices;
       inline void createIndices(Type* buf, size_t bufOffset, IndexType* indices, size_t bufModOffset, int elements) const {
         int indexOffset = computeActiveElements((int)bufModOffset);
 
@@ -153,6 +159,7 @@ namespace medi {
         }
       }
 
+      using Base::getValues;
       inline void getValues(const Type* buf, size_t bufOffset, PrimalType* primals, size_t bufModOffset, int elements) const {
         int primalOffset = computeActiveElements((int)bufModOffset);
 
@@ -161,6 +168,7 @@ namespace medi {
         }
       }
 
+      using Base::performReduce;
       inline void performReduce(Type* buf, Type* target, int count, AMPI_Op op, int ranks) const {
         for(int j = 1; j < ranks; ++j) {
           MPI_Reduce_local(&buf[j * count], buf, count, this->getMpiType(), op.primalFunction);
@@ -179,26 +187,31 @@ namespace medi {
 
       }
 
+      using Base::initializeType;
       void initializeType(Type* buf, size_t bufOffset, int elements) const {
         for(int i = 0; i < elements; ++i) {
           new(&buf[bufOffset + i]) Type;
         }
       }
 
+      using Base::freeType;
       void freeType(Type* buf, size_t bufOffset, int elements) const {
         for(int i = 0; i < elements; ++i) {
           buf[bufOffset + i].~Type();
         }
       }
 
+      using Base::createTypeBuffer;
       inline void createTypeBuffer(Type* &buf, size_t size) const {
         buf = new Type[size];
       }
 
+      using Base::createModifiedTypeBuffer;
       inline void createModifiedTypeBuffer(ModifiedType* &buf, size_t size) const {
         buf = new ModifiedType[size];
       }
 
+      using Base::deleteTypeBuffer;
       inline void deleteTypeBuffer(Type* &buf, size_t size) const {
         MEDI_UNUSED(size);
 
@@ -208,6 +221,7 @@ namespace medi {
         }
       }
 
+      using Base::deleteModifiedTypeBuffer;
       inline void deleteModifiedTypeBuffer(ModifiedType* &buf) const {
         if(NULL != buf) {
           delete [] buf;

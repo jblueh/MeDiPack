@@ -1160,6 +1160,7 @@ namespace medi {
     template<$(curFunction.tplDef)>
 . endif
   inline $(curFunction.type) AMPI_$(curFunction.name)($(curFunction.argDef)) {
+.   startDeprecatedGuard(curFunction)
 .   if(defined(curFunction->operator))
       AMPI_Op convOp = op;
       (void)convOp;
@@ -1171,6 +1172,7 @@ namespace medi {
 .       endif
 .     endfor
     return MPI_$(curFunction.name)($(curFunction.argArg));
+.   endDeprecatedGuard(curFunction)
   }
 
 . endVersionGuard(curFunction)

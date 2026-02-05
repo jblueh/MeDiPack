@@ -59,6 +59,7 @@ namespace medi {
         return restorePrimal;
       }
 
+      using Base::createPrimalTypeBuffer;
       inline void createPrimalTypeBuffer(PrimalType* &buf, size_t size) const {
         buf = new PrimalType[size];
       }
@@ -68,6 +69,7 @@ namespace medi {
         buf = new IndexType[size];
       }
 
+      using Base::deletePrimalTypeBuffer;
       inline void deletePrimalTypeBuffer(PrimalType* &buf) const {
         if(NULL != buf) {
           delete [] buf;

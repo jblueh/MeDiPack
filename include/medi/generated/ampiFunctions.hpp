@@ -14486,38 +14486,80 @@ namespace medi {
 #endif
 #if MEDI_MPI_VERSION_1_0 <= MEDI_MPI_TARGET && MEDI_MPI_TARGET < MEDI_MPI_VERSION_3_0
   inline int AMPI_Address(void* location, AMPI_Aint* address) {
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
     return MPI_Address(location, address);
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic pop
+#endif
   }
 
 #endif
-#if MEDI_MPI_VERSION_1_0 <= MEDI_MPI_TARGET
+#if MEDI_MPI_VERSION_1_0 <= MEDI_MPI_TARGET && MEDI_MPI_TARGET < MEDI_MPI_VERSION_3_0
   inline int AMPI_Attr_delete(AMPI_Comm comm, int keyval) {
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
     return MPI_Attr_delete(comm, keyval);
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic pop
+#endif
   }
 
 #endif
-#if MEDI_MPI_VERSION_1_0 <= MEDI_MPI_TARGET
+#if MEDI_MPI_VERSION_1_0 <= MEDI_MPI_TARGET && MEDI_MPI_TARGET < MEDI_MPI_VERSION_3_0
   inline int AMPI_Attr_get(AMPI_Comm comm, int keyval, void* attribute_val, int* flag) {
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
     return MPI_Attr_get(comm, keyval, attribute_val, flag);
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic pop
+#endif
   }
 
 #endif
-#if MEDI_MPI_VERSION_1_0 <= MEDI_MPI_TARGET
+#if MEDI_MPI_VERSION_1_0 <= MEDI_MPI_TARGET && MEDI_MPI_TARGET < MEDI_MPI_VERSION_3_0
   inline int AMPI_Attr_put(AMPI_Comm comm, int keyval, void* attribute_val) {
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
     return MPI_Attr_put(comm, keyval, attribute_val);
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic pop
+#endif
   }
 
 #endif
 #if MEDI_MPI_VERSION_1_0 <= MEDI_MPI_TARGET
   inline int AMPI_Keyval_create(AMPI_Copy_function* copy_fn, AMPI_Delete_function* delete_fn, int* keyval,
                                 void* extra_state) {
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
     return MPI_Keyval_create(copy_fn, delete_fn, keyval, extra_state);
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic pop
+#endif
   }
 
 #endif
 #if MEDI_MPI_VERSION_1_0 <= MEDI_MPI_TARGET
   inline int AMPI_Keyval_free(int* keyval) {
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
     return MPI_Keyval_free(keyval);
+#if MEDI_MPI_VERSION_2_0 <= MEDI_MPI_TARGET
+#pragma GCC diagnostic pop
+#endif
   }
 
 #endif
